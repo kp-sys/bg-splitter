@@ -59,6 +59,7 @@ angular.module('bgDirectives', [])
             pane1.elem.css('width', pos + 'px');
             pane2.elem.css('left', pos + 'px');
           }
+          scope.$apply();
         });
     
         handler.bind('mousedown', function (ev) { 
