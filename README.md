@@ -2,6 +2,10 @@
 
 Simple pane splitter for angular.js 
 
+## Install via npm
+
+npm i bg-splitter
+
 ## Sample
 
 HTML:
@@ -28,4 +32,4 @@ Code licensed under MIT license.
 
 ## Note
 
-It forked from https://github.com/blackgate/bg-splitter. Author no longer maintain this project.
+It was forked from https://github.com/blackgate/bg-splitter. Author no longer maintain this project.
