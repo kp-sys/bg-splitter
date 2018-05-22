@@ -37,7 +37,7 @@ function Splitter ($document) {
     transclude: true,
     scope: {
       orientation: '@',
-      handlerStyle: '='
+      handlerStyle: '=?'
     },
     template: '<div class="split-panes {{orientation}}" ng-transclude></div>',
     controller: ['$scope', function ($scope) {
@@ -58,15 +58,18 @@ function Splitter ($document) {
         pane1Min = pane1.minSize || 0,
         pane2Min = pane2.minSize || 0,
         draged = false,
-        handlerStyle = angular.extend({
-          width: '10px',
-          height: '10px'
-        }, scope.handlerStyle);
+        handlerStyle = null;
 
       if (vertical) {
-        handlerStyle['left'] = '50%';
+        handlerStyle = angular.extend({
+          width: '10px',
+          left: '50%'
+        }, scope.handlerStyle)
       } else {
-        handlerStyle['top'] = '50%';
+        handlerStyle = angular.extend({
+          height: '10px',
+          top: '50%',
+        }, scope.handlerStyle)
       }
       handler.css(handlerStyle);
 
