@@ -29,8 +29,8 @@ var app = angular.module('myApp', ['bgDirectives']);
 Optionally you can set styles for split handler element with attribute:
 ```html
 <bg-splitter orientation="vertical"
-						 handler-style="{
-							'background': '#bbb',
+	     handler-style="{
+              'background': '#bbb',
               'width': '60px',
               'margin-left': '-30px',
               'height': '10px',
