@@ -79,6 +79,29 @@ function Splitter ($document) {
 
       pane1.elem.after(handler);
 
+        var initPane1 = (!isNaN(pane1.initSize));
+        var initPane2 = (!isNaN(pane2.initSize));
+        var initLOrT;
+        var initWOrH;
+
+
+        if (vertical) {
+          initLOrT = 'top';
+          initWOrH = 'height';
+        } else {
+          initLOrT = 'left';
+          initWOrH = 'width';
+        }
+
+        if (initPane2) {
+          throw new Error("second pane cannot have init-size attribute");
+        }
+        if (initPane1) {
+          handler.css(   initLOrT, pane1.initSize + 'px');
+          pane1.elem.css(initWOrH, pane1.initSize + 'px');
+          pane2.elem.css(initLOrT, pane1.initSize + 'px');
+        }
+
       element.bind('mousemove', drag);
       handler.bind('mousedown', dragstart);
       $document.bind('mouseup', dragend);
@@ -141,7 +164,8 @@ function Pane () {
     replace: true,
     transclude: true,
     scope: {
-      minSize: '='
+      minSize: '=',
+      initSize: '='
     },
     template: '<div class="split-pane{{index}}" ng-transclude></div>',
     link: function(scope, element, attrs, bgSplitterCtrl) {
